@@ -1,35 +1,53 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wolf Academy – Gold Learning Community</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Meta Pixel Code -->
+<title>Gold Market Learning Community</title>
+
+<!-- SEO META -->
+
+<meta name="description" content="Join a free educational community to learn gold (XAUUSD) market basics, price action concepts, and trading discipline in a beginner-friendly way.">
+
+<!-- Open Graph -->
+
+<meta property="og:title" content="Gold Market Learning Community">
+<meta property="og:description" content="Educational community focused on understanding gold market concepts and behavior.">
+<meta property="og:type" content="website">
+
+<!-- Google Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel -->
+
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1620590965703410');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1620590965703410&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
-
-  
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1620590965703410&ev=PageView&noscript=1"/>
+</noscript>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:'Poppins',sans-serif;
@@ -38,32 +56,30 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#0f172a;
 }
 
 .card{
   width:100%;
-  max-width:430px;
+  max-width:420px;
   background:#ffffff;
-  border-radius:24px;
-  padding:32px 26px;
+  border-radius:22px;
+  padding:30px 24px;
   text-align:center;
-  box-shadow:0 30px 80px rgba(0,0,0,0.25);
-  animation:fadeUp .8s ease forwards;
+  box-shadow:0 25px 70px rgba(0,0,0,0.25);
+  animation:fadeUp .7s ease;
 }
 
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px) scale(.96)}
+  from{opacity:0;transform:translateY(25px)}
   to{opacity:1;transform:none}
 }
 
 .logo{
-  width:72px;
-  height:72px;
-  margin:0 auto 18px;
+  width:70px;
+  height:70px;
+  margin:0 auto 15px;
   border-radius:50%;
   overflow:hidden;
-  box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
 
 .logo img{
@@ -73,21 +89,14 @@ body{
 }
 
 h1{
-  font-size:24px;
+  font-size:22px;
   font-weight:700;
-  margin-bottom:6px;
+  margin-bottom:5px;
 }
 
 .subtitle{
   font-size:13px;
   color:#64748b;
-  margin-bottom:10px;
-}
-
-.trust{
-  font-size:12px;
-  color:#16a34a;
-  font-weight:600;
   margin-bottom:16px;
 }
 
@@ -99,43 +108,23 @@ h1{
 
 .features li{
   font-size:14px;
-  margin-bottom:12px;
-  display:flex;
-  gap:8px;
-  align-items:flex-start;
-}
-
-.scarcity{
-  font-size:13px;
-  color:#b91c1c;
-  font-weight:600;
   margin-bottom:10px;
 }
 
 .cta{
   display:block;
-  margin-top:8px;
-  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  margin-top:15px;
+  background:#2563eb;
   color:#fff;
   text-decoration:none;
-  padding:15px;
-  border-radius:14px;
+  padding:14px;
+  border-radius:12px;
   font-weight:600;
-  font-size:15px;
-  transition:.25s ease;
-  box-shadow:0 12px 30px rgba(37,99,235,.35);
+  transition:.25s;
 }
 
 .cta:hover{
   transform:translateY(-2px);
-  box-shadow:0 16px 36px rgba(37,99,235,.45);
-}
-
-.timer{
-  font-size:13px;
-  font-weight:600;
-  color:#dc2626;
-  margin-top:10px;
 }
 
 .note{
@@ -146,109 +135,73 @@ h1{
 }
 
 .footer{
-  margin-top:22px;
+  margin-top:18px;
   font-size:11px;
   color:#94a3b8;
-  line-height:1.7;
+  line-height:1.6;
 }
 
 .footer a{
   color:#2563eb;
   text-decoration:none;
-  font-weight:500;
-}
-
-.compliance{
-  margin-top:10px;
-  font-size:10px;
-}
-
-@media (max-width:420px){
-  .card{padding:26px 18px}
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="card">
 
+  <!-- LOGO -->
+
   <div class="logo">
-    <img src="wt.jpeg" alt="Wolf Trading Logo">
+    <img src="wt.jpeg" alt="Community Logo" loading="lazy">
   </div>
 
-  <h1>Wolf Trading Academy</h1>
+  <h1>Gold Market Learning</h1>
 
   <div class="subtitle">
-    Professional Gold (XAUUSD) Market Education Program
-  </div>
-
-  <div class="trust">
-    ✔ Structured Curriculum | ✔ Real Market Logic | ✔ No Signals, Pure Education
+    Educational community for understanding XAUUSD concepts
   </div>
 
   <ul class="features">
-    <li>✔ Learn how real Gold (XAUUSD) market structure works</li>
-    <li>✔ Clear step-by-step trading framework</li>
-    <li>✔ Practical live chart breakdowns</li>
-    <li>✔ Risk management & discipline guidance</li>
-    <li>✔ Education only — No signals, No income claims</li>
+    <li>✔ Learn gold market basics</li>
+    <li>✔ Understand price action concepts</li>
+    <li>✔ Focus on discipline & consistency</li>
+    <li>✔ Educational discussions only</li>
   </ul>
 
-  <div class="scarcity">
-    Limited learning slots available
-  </div>
+  <!-- CTA -->
 
-  <a href="https://t.me/+Fo9Z_ug33zMzZGE1" 
-     target="_blank" 
-     class="cta"
-     onclick="fbq('track','Lead')">
-     Join the Free Gold Learning Community →
-  </a>
-
-  <div class="timer" id="timer"></div>
+<a href="https://t.me/+Fo9Z_ug33zMzZGE1"
+  target="_blank"
+  class="cta"
+  onclick="fbq('track','Lead')">
+Join Free Learning Group </a>
 
   <div class="note">
-    Access is limited to maintain focused learning quality. Entry may close once group capacity is reached.
+    This community provides educational content only. No financial or investment advice is given. No profit claims or guarantees are made.
   </div>
 
   <div class="footer">
-    <div>
-      <a href="https://elitepips.online/terms/">Terms</a> |
-      <a href="https://elitepips.online/privacy/">Privacy</a> |
-      <a href="https://elitepips.online/disclaimer/">Disclaimer</a>
-    </div>
+    <a href="https://elitepips.online/terms/" target="_blank">Terms</a> |
+    <a href="https://elitepips.online/privacy/" target="_blank">Privacy</a> |
+    <a href="https://elitepips.online/disclaimer/" target="_blank">Disclaimer</a>
 
-    <div class="compliance">
-      Trading financial markets involves risk. This content is strictly educational and does not provide financial advice or investment recommendations.
-    </div>
+```
+<br><br>
 
-    <div>
-      This page is not associated with Meta Platforms, Inc.
-    </div>
+Trading involves risk and may not be suitable for all individuals.
+
+<br>
+
+Not affiliated with Meta Platforms, Inc.
+
+
   </div>
 
 </div>
-
-<script>
-// Daily countdown timer
-function updateTimer(){
-  const now = new Date();
-  const end = new Date();
-  end.setHours(23,59,59,999);
-  const diff = end - now;
-
-  const h = Math.floor(diff / (1000*60*60));
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("timer").textContent =
-  `⏳ Enrollment closing in ${h}h ${m}m ${s}s`;
-}
-
-setInterval(updateTimer,1000);
-updateTimer();
-</script>
 
 </body>
 </html>
