@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gold Market Learning Community</title>
-
-<!-- SEO META -->
+<title>Wolf</title>
 
 <meta name="description" content="Join a free educational community to learn gold (XAUUSD) market basics, price action concepts, and trading discipline in a beginner-friendly way.">
-
-<!-- Open Graph -->
 
 <meta property="og:title" content="Gold Market Learning Community">
 <meta property="og:description" content="Educational community focused on understanding gold market concepts and behavior.">
 <meta property="og:type" content="website">
 
-<!-- Google Font -->
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-<!-- Meta Pixel -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
@@ -41,167 +32,635 @@ src="https://www.facebook.com/tr?id=2196249364523878&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-  
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+  :root {
+    --bg-primary: #000000;
+    --bg-secondary: #0A0A0A;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --text-primary: #FFFFFF;
+    --text-secondary: #A3A3A3;
+    --text-muted: #737373;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --accent-dark: #4f46e5;
+    --border-subtle: rgba(255,255,255,0.07);
+    --border-light: rgba(255,255,255,0.1);
+    --glow-indigo: rgba(99,102,241,0.15);
+    --glow-purple: rgba(139,92,246,0.1);
+    --gold: #f59e0b;
+    --gold-light: #fbbf24;
+    --gold-dim: rgba(245,158,11,0.15);
+  }
 
-.card{
-  width:100%;
-  max-width:420px;
-  background:#ffffff;
-  border-radius:22px;
-  padding:30px 24px;
-  text-align:center;
-  box-shadow:0 25px 70px rgba(0,0,0,0.25);
-  animation:fadeUp .7s ease;
-}
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(25px)}
-  to{opacity:1;transform:none}
-}
+  /* ── Background Effects ── */
 
-.logo{
-  width:70px;
-  height:70px;
-  margin:0 auto 15px;
-  border-radius:50%;
-  overflow:hidden;
-}
+  .bg-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+  .bg-glow--indigo {
+    width: 600px;
+    height: 600px;
+    background: var(--glow-indigo);
+    top: -15%;
+    right: -10%;
+    animation: floatSlow 20s ease-in-out infinite;
+  }
 
-h1{
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:5px;
-}
+  .bg-glow--purple {
+    width: 500px;
+    height: 500px;
+    background: var(--glow-purple);
+    bottom: -20%;
+    left: -15%;
+    animation: floatSlow 25s ease-in-out infinite reverse;
+  }
 
-.subtitle{
-  font-size:13px;
-  color:#64748b;
-  margin-bottom:16px;
-}
+  .bg-glow--gold {
+    width: 300px;
+    height: 300px;
+    background: var(--gold-dim);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseGlow 6s ease-in-out infinite;
+  }
 
-.features{
-  list-style:none;
-  margin:18px 0;
-  text-align:left;
-}
+  @keyframes floatSlow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
 
-.features li{
-  font-size:14px;
-  margin-bottom:10px;
-}
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
+  }
 
-.cta{
-  display:block;
-  margin-top:15px;
-  background:#2563eb;
-  color:#fff;
-  text-decoration:none;
-  padding:14px;
-  border-radius:12px;
-  font-weight:600;
-  transition:.25s;
-}
+  /* ── Grid Pattern ── */
 
-.cta:hover{
-  transform:translateY(-2px);
-}
+  .bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
 
-.note{
-  font-size:11px;
-  color:#64748b;
-  margin-top:12px;
-  line-height:1.5;
-}
+  /* ── Main Card ── */
 
-.footer{
-  margin-top:18px;
-  font-size:11px;
-  color:#94a3b8;
-  line-height:1.6;
-}
+  .card-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+  }
 
-.footer a{
-  color:#2563eb;
-  text-decoration:none;
-}
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: cardEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes cardEnter {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.97);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Card top glow line */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-light), var(--gold), var(--accent-light), transparent);
+    opacity: 0.6;
+  }
+
+  /* Subtle inner gradient */
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(99,102,241,0.04) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* ── Logo ── */
+
+  .logo-container {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 24px;
+    animation: logoEnter 0.6s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes logoEnter {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .logo-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent), var(--gold), var(--accent-light), var(--gold), var(--accent));
+    animation: spinRing 8s linear infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes spinRing {
+    to { transform: rotate(360deg); }
+  }
+
+  .logo-ring-inner {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+  }
+
+  .logo {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Badge ── */
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(245,158,11,0.2);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.6s 0.4s ease forwards;
+    opacity: 0;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* ── Typography ── */
+
+  h1 {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    animation: fadeUp 0.6s 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  h1 .gold-text {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), #fde68a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Features ── */
+
+  .features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: default;
+    animation: featureEnter 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  .features li:nth-child(1) { animation-delay: 0.65s; }
+  .features li:nth-child(2) { animation-delay: 0.75s; }
+  .features li:nth-child(3) { animation-delay: 0.85s; }
+  .features li:nth-child(4) { animation-delay: 0.95s; }
+
+  @keyframes featureEnter {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .features li:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-light);
+    transform: translateX(4px);
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .feature-icon--gold {
+    background: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  .feature-icon--indigo {
+    background: rgba(99,102,241,0.12);
+    color: var(--accent-light);
+  }
+
+  .feature-icon--green {
+    background: rgba(34,197,94,0.12);
+    color: #4ade80;
+  }
+
+  .feature-icon--purple {
+    background: rgba(168,85,247,0.12);
+    color: #c084fc;
+  }
+
+  /* ── CTA Button ── */
+
+  .cta-wrapper {
+    animation: fadeUp 0.6s 1.05s ease forwards;
+    opacity: 0;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px -8px rgba(99,102,241,0.4);
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+  }
+
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px -8px rgba(99,102,241,0.5);
+  }
+
+  .cta:hover::before {
+    transform: translateX(100%);
+  }
+
+  .cta:active {
+    transform: translateY(0);
+  }
+
+  .cta svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* ── Member Count ── */
+
+  .member-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    animation: fadeUp 0.6s 1.15s ease forwards;
+    opacity: 0;
+  }
+
+  .avatars {
+    display: flex;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-secondary);
+    margin-left: -8px;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .avatar:first-child { margin-left: 0; }
+
+  .member-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .member-text strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* ── Disclaimer ── */
+
+  .disclaimer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+    animation: fadeUp 0.6s 1.25s ease forwards;
+    opacity: 0;
+  }
+
+  .disclaimer-text {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--text-secondary);
+  }
+
+  .footer-links .sep {
+    color: rgba(255,255,255,0.1);
+    font-size: 10px;
+  }
+
+  /* ── Responsive ── */
+
+  @media (max-width: 480px) {
+    .card-wrapper {
+      padding: 16px;
+    }
+    .card {
+      padding: 32px 22px 24px;
+      border-radius: 20px;
+    }
+    h1 {
+      font-size: 22px;
+    }
+    .logo-container {
+      width: 76px;
+      height: 76px;
+    }
+    .logo {
+      width: 76px;
+      height: 76px;
+    }
+  }
+
+  /* ── Scrollbar ── */
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
 </style>
 
 </head>
 
 <body>
 
-<div class="card">
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow--indigo"></div>
+  <div class="bg-glow bg-glow--purple"></div>
+  <div class="bg-glow bg-glow--gold"></div>
 
-  <!-- LOGO -->
+  <!-- Main Card -->
+  <div class="card-wrapper">
+    <div class="card">
 
-  <div class="logo">
-    <img src="wt.jpeg" alt="Community Logo" loading="lazy">
+      <!-- Logo -->
+      <div class="logo-container">
+        <div class="logo-ring"></div>
+        <div class="logo-ring-inner"></div>
+        <div class="logo">
+          <img src="wt.jpeg" alt="Community Logo" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Badge -->
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Free Community
+      </div>
+
+      <!-- Heading -->
+      <h1>Learn <span class="gold-text">Gold Market</span> Concepts</h1>
+
+      <p class="subtitle">
+        Join an educational community focused on understanding XAUUSD behavior, price action, and disciplined analysis.
+      </p>
+
+      <!-- Features -->
+      <ul class="features">
+        <li>
+          <span class="feature-icon feature-icon--gold">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </span>
+          Gold market fundamentals & structure
+        </li>
+        <li>
+          <span class="feature-icon feature-icon--indigo">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </span>
+          Price action concepts & patterns
+        </li>
+        <li>
+          <span class="feature-icon feature-icon--green">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          Discipline, patience & consistency
+        </li>
+        <li>
+          <span class="feature-icon feature-icon--purple">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </span>
+          Educational discussions only
+        </li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="cta-wrapper">
+        <a href="https://t.me/+Fo9Z_ug33zMzZGE1"
+           target="_blank"
+           class="cta"
+           onclick="fbq('track','Subscribe')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Get Free Acces -> Private Community
+        </a>
+      </div>
+
+      <!-- Member Count -->
+      <div class="member-count">
+        <div class="avatars">
+          <div class="avatar">T</div>
+          <div class="avatar">A</div>
+          <div class="avatar">R</div>
+        </div>
+        <span class="member-text"><strong>2,400+</strong> learners already joined</span>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <p class="disclaimer-text">
+          This community provides educational content only. No financial or investment advice is given. No profit claims or guarantees are made. Trading involves risk and may not be suitable for all individuals.
+        </p>
+        <div class="footer-links">
+          <a href="https://elitepips.online/terms/" target="_blank">Terms</a>
+          <span class="sep">·</span>
+          <a href="https://elitepips.online/privacy/" target="_blank">Privacy</a>
+          <span class="sep">·</span>
+          <a href="https://elitepips.online/disclaimer/" target="_blank">Disclaimer</a>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <h1>Gold Market Learning</h1>
-
-  <div class="subtitle">
-    Educational community for understanding XAUUSD concepts
-  </div>
-
-  <ul class="features">
-    <li>✔ Learn gold market basics</li>
-    <li>✔ Understand price action concepts</li>
-    <li>✔ Focus on discipline & consistency</li>
-    <li>✔ Educational discussions only</li>
-  </ul>
-
-  <!-- CTA -->
-
-<a href="https://t.me/+Fo9Z_ug33zMzZGE1"
-  target="_blank"
-  class="cta"
-  onclick="fbq('track','Lead')">
-Join Free Learning Group </a>
-
-  <div class="note">
-    This community provides educational content only. No financial or investment advice is given. No profit claims or guarantees are made.
-  </div>
-
-  <div class="footer">
-    <a href="https://elitepips.online/terms/" target="_blank">Terms</a> |
-    <a href="https://elitepips.online/privacy/" target="_blank">Privacy</a> |
-    <a href="https://elitepips.online/disclaimer/" target="_blank">Disclaimer</a>
-
-```
-<br><br>
-
-Trading involves risk and may not be suitable for all individuals.
-
-<br>
-
-Not affiliated with Meta Platforms, Inc.
-
-
-  </div>
-
-</div>
 
 </body>
 </html>
