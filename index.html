@@ -8,9 +8,10 @@
 
 <meta name="description" content="Join a free educational community to learn gold (XAUUSD) market basics, price action concepts, and trading discipline in a beginner-friendly way.">
 
-<meta property="og:title" content="Gold Market Learning Community">
+<meta property="og:title" content="Wolf - Gold Market Learning Community">
 <meta property="og:description" content="Educational community focused on understanding gold market concepts and behavior.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://elitepips.online/wt.jpeg">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -134,6 +135,19 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
   }
 
+  /* ── Noise Texture ── */
+
+  .bg-noise {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
   /* ── Main Card ── */
 
   .card-wrapper {
@@ -169,7 +183,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     }
   }
 
-  /* Card top glow line */
   .card::before {
     content: '';
     position: absolute;
@@ -182,7 +195,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     opacity: 0.6;
   }
 
-  /* Subtle inner gradient */
   .card::after {
     content: '';
     position: absolute;
@@ -288,6 +300,8 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     margin-bottom: 8px;
     animation: fadeUp 0.6s 0.5s ease forwards;
     opacity: 0;
+    position: relative;
+    z-index: 2;
   }
 
   h1 .gold-text {
@@ -305,6 +319,8 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     margin-bottom: 28px;
     animation: fadeUp 0.6s 0.6s ease forwards;
     opacity: 0;
+    position: relative;
+    z-index: 2;
   }
 
   @keyframes fadeUp {
@@ -321,6 +337,8 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: relative;
+    z-index: 2;
   }
 
   .features li {
@@ -392,6 +410,8 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   .cta-wrapper {
     animation: fadeUp 0.6s 1.05s ease forwards;
     opacity: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .cta {
@@ -455,6 +475,8 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     margin-top: 14px;
     animation: fadeUp 0.6s 1.15s ease forwards;
     opacity: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .avatars {
@@ -497,6 +519,8 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     border-top: 1px solid var(--border-subtle);
     animation: fadeUp 0.6s 1.25s ease forwards;
     opacity: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .disclaimer-text {
@@ -530,6 +554,16 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     font-size: 10px;
   }
 
+  /* ── Reduced Motion ── */
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   /* ── Responsive ── */
 
   @media (max-width: 480px) {
@@ -551,6 +585,10 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
       width: 76px;
       height: 76px;
     }
+    .cta {
+      font-size: 14px;
+      padding: 14px 20px;
+    }
   }
 
   /* ── Scrollbar ── */
@@ -564,8 +602,9 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
 
 <body>
 
-  <!-- Background Effects -->
+  <!-- Background Layers -->
   <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
   <div class="bg-glow bg-glow--indigo"></div>
   <div class="bg-glow bg-glow--purple"></div>
   <div class="bg-glow bg-glow--gold"></div>
@@ -579,7 +618,7 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
         <div class="logo-ring"></div>
         <div class="logo-ring-inner"></div>
         <div class="logo">
-          <img src="wt.jpeg" alt="Community Logo" loading="lazy">
+          <img src="wt.jpeg" alt="Wolf Community Logo" loading="eager">
         </div>
       </div>
 
@@ -628,18 +667,19 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
       <div class="cta-wrapper">
         <a href="https://t.me/+Fo9Z_ug33zMzZGE1"
            target="_blank"
+           rel="noopener noreferrer"
            class="cta"
            onclick="fbq('track','Subscribe')">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Get Free Acces -> Private Community
+          Get Free Access → Private Community
         </a>
       </div>
 
       <!-- Member Count -->
       <div class="member-count">
         <div class="avatars">
+          <div class="avatar">W</div>
           <div class="avatar">T</div>
-          <div class="avatar">A</div>
           <div class="avatar">R</div>
         </div>
         <span class="member-text"><strong>2,400+</strong> learners already joined</span>
@@ -651,11 +691,11 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
           This community provides educational content only. No financial or investment advice is given. No profit claims or guarantees are made. Trading involves risk and may not be suitable for all individuals.
         </p>
         <div class="footer-links">
-          <a href="https://elitepips.online/terms/" target="_blank">Terms</a>
+          <a href="https://elitepips.online/terms/" target="_blank" rel="noopener noreferrer">Terms</a>
           <span class="sep">·</span>
-          <a href="https://elitepips.online/privacy/" target="_blank">Privacy</a>
+          <a href="https://elitepips.online/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>
           <span class="sep">·</span>
-          <a href="https://elitepips.online/disclaimer/" target="_blank">Disclaimer</a>
+          <a href="https://elitepips.online/disclaimer/" target="_blank" rel="noopener noreferrer">Disclaimer</a>
         </div>
       </div>
 
