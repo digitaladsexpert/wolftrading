@@ -73,7 +73,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Background Effects ── */
-
   .bg-glow {
     position: fixed;
     border-radius: 50%;
@@ -122,7 +121,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Grid Pattern ── */
-
   .bg-grid {
     position: fixed;
     inset: 0;
@@ -136,7 +134,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Noise Texture ── */
-
   .bg-noise {
     position: fixed;
     inset: 0;
@@ -149,7 +146,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Main Card ── */
-
   .card-wrapper {
     position: relative;
     z-index: 1;
@@ -207,7 +203,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Logo ── */
-
   .logo-container {
     position: relative;
     width: 88px;
@@ -258,7 +253,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Badge ── */
-
   .badge {
     display: inline-flex;
     align-items: center;
@@ -291,7 +285,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Typography ── */
-
   h1 {
     font-size: 26px;
     font-weight: 600;
@@ -329,7 +322,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Features ── */
-
   .features {
     list-style: none;
     text-align: left;
@@ -406,7 +398,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── CTA Button ── */
-
   .cta-wrapper {
     animation: fadeUp 0.6s 1.05s ease forwards;
     opacity: 0;
@@ -466,7 +457,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Member Count ── */
-
   .member-count {
     display: flex;
     align-items: center;
@@ -512,7 +502,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Contact Us Section ── */
-
   .contact-section {
     margin-top: 24px;
     padding: 20px;
@@ -523,6 +512,13 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     opacity: 0;
     position: relative;
     z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-section:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-light);
   }
 
   .contact-title {
@@ -576,7 +572,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Disclaimer ── */
-
   .disclaimer {
     margin-top: 24px;
     padding-top: 20px;
@@ -602,14 +597,20 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     flex-wrap: wrap;
   }
 
-  .footer-links a {
+  /* Updated Footer Links Style */
+  .footer-link-btn {
     font-size: 11px;
     color: var(--text-muted);
     text-decoration: none;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    padding: 0;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover {
+  .footer-link-btn:hover {
     color: var(--text-secondary);
   }
 
@@ -618,8 +619,85 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     font-size: 10px;
   }
 
-  /* ── Reduced Motion ── */
+  /* ── MODAL CSS ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .modal-overlay.active {
+    display: flex;
+  }
+  
+  .modal-card {
+    width: 100%;
+    max-width: 420px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 32px 24px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.1);
+    animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  @keyframes modalEnter {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  .modal-title {
+    color: var(--accent-light);
+    font-size: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .modal-content {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  
+  .modal-content p { margin-bottom: 12px; }
+  .modal-content strong { color: var(--text-primary); }
+  .modal-content a { color: var(--gold-light); text-decoration: none; font-weight: 500; }
 
+  /* ── Reduced Motion ── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -629,7 +707,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Responsive ── */
-
   @media (max-width: 480px) {
     .card-wrapper {
       padding: 16px;
@@ -659,7 +736,6 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
   }
 
   /* ── Scrollbar ── */
-
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
@@ -752,24 +828,19 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
         <span class="member-text"><strong>2,400+</strong> learners already joined</span>
       </div>
 
-      <!-- Contact Us Section -->
-<div class="contact-section">
-  <div class="contact-title">
-    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-    Contact Us
-  </div>
-  <div class="contact-info">
-    
-    <div class="contact-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      <a href="https://t.me/+SL7gXjbYcpw1MGU9" target="_blank" rel="noopener noreferrer">Join Telegram Channel</a>
-    </div>
-    <div class="contact-item">
-      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span>Worldwide Online Community</span>
-    </div>
-  </div>
-</div>
+      <!-- Contact Us Section (Click to open Modal) -->
+      <div class="contact-section" onclick="openModal('contact')">
+        <div class="contact-title">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Contact Us
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <span>Tap here to view contact details</span>
+          </div>
+        </div>
+      </div>
 
       <!-- Disclaimer -->
       <div class="disclaimer">
@@ -777,16 +848,90 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
           This community provides educational content only. No financial or investment advice is given. No profit claims or guarantees are made. Trading involves risk and may not be suitable for all individuals.
         </p>
         <div class="footer-links">
-          <a href="https://elitepips.online/terms/" target="_blank" rel="noopener noreferrer">Terms</a>
+          <button class="footer-link-btn" onclick="openModal('terms')">Terms</button>
           <span class="sep">·</span>
-          <a href="https://elitepips.online/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>
+          <button class="footer-link-btn" onclick="openModal('privacy')">Privacy</button>
           <span class="sep">·</span>
-          <a href="https://elitepips.online/disclaimer/" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+          <button class="footer-link-btn" onclick="openModal('disclaimer')">Disclaimer</button>
+          <span class="sep">·</span>
+          <button class="footer-link-btn" onclick="openModal('contact')">Contact Us</button>
         </div>
       </div>
 
     </div>
   </div>
+
+  <!-- LEGAL MODALS -->
+  <div class="modal-overlay" id="legalModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+<script>
+// ===== LEGAL MODAL LOGIC =====
+const legalData = {
+  privacy: {
+    title: "Privacy Policy",
+    content: `
+      <p><strong>Data Collection:</strong> Wolf Community aapse koi bhi personal data jaise name, email ya phone number collect nahi karta. Hamari Telegram community fully anonymous hai.</p>
+      <p><strong>Cookies & Tracking:</strong> Is landing page par Meta Pixel ka istemal advertising optimization aur conversions track karne ke liye hota hai. Ye anonymous usage data collect karta hai.</p>
+      <p><strong>Third-Party Platforms:</strong> Jab aap 'Join Telegram' par click karte hain, toh aap Telegram ke terms of service ke under aate hain. Hum aapke Telegram activity data ko access ya store nahi karte.</p>
+    `
+  },
+  disclaimer: {
+    title: "Trading Disclaimer",
+    content: `
+      <p><strong>Educational Purpose Only:</strong> Wolf Community aur iske Telegram channel par diye gaye saare XAUUSD (Gold), Forex charts, analysis, aur setups sirf educational purpose ke liye hain. Ye koi financial advice nahi hai.</p>
+      <p><strong>High Risk Warning:</strong> Forex aur CFD trading mein substantial risk hota hai. Market volatility ki wajah se aap apne poore capital kho sakte hain.</p>
+      <p><strong>No Guarantees:</strong> Hum kisi bhi profit ya specific returns ki guarantee nahi dete. Aap apne trades aur risk management ke liye khud fully responsible hain. Please apni financial situation ke hisaab se trade karein.</p>
+    `
+  },
+  terms: {
+    title: "Terms & Conditions",
+    content: `
+      <p><strong>Community Rules:</strong> Telegram group mein spamming, promotional links, ya abusive language strictly prohibited hai. Rule break karne wale members ko bina warning ban kiya ja sakta hai.</p>
+      <p><strong>Content Usage:</strong> Community mein share ki gayi charts, PDFs, aur educational material ko copy karke resell karna ya distribute karna mana hai.</p>
+      <p><strong>Agreement:</strong> 'Get Free Access' par click karke, aap mane hain ki trading risks ko samajhte hain aur in terms se agree karte hain.</p>
+    `
+  },
+  contact: {
+    title: "Contact Us",
+    content: `
+      <p>Agar aapko koi technical issue hai ya community rules ke baare mein koi sawal hai, toh aap humein directly Telegram par contact kar sakte hain:</p>
+      <p style="text-align:center; margin-top:15px;">
+        <a href="https://t.me/+SL7gXjbYcpw1MGU9" target="_blank" rel="noopener noreferrer">👉 Contact Admin on Telegram</a>
+      </p>
+      <p>Hum usually 24-48 ghante ke andar reply karte hain.</p>
+    `
+  }
+};
+
+function openModal(type) {
+  const data = legalData[type];
+  document.getElementById('modalTitle').innerText = data.title;
+  document.getElementById('modalContent').innerHTML = data.content;
+  document.getElementById('legalModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('legalModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close on outside click
+document.getElementById('legalModal').addEventListener('click', (e) => {
+  if (e.target.id === 'legalModal') closeModal();
+});
+
+// Close on ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
 
 </body>
 </html>
