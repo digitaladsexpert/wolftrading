@@ -511,13 +511,77 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     font-weight: 500;
   }
 
+  /* ── Contact Us Section ── */
+
+  .contact-section {
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    animation: fadeUp 0.6s 1.3s ease forwards;
+    opacity: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .contact-title svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-light);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .contact-item a {
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+  }
+
+  .contact-item svg {
+    width: 14px;
+    height: 14px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
   /* ── Disclaimer ── */
 
   .disclaimer {
     margin-top: 24px;
     padding-top: 20px;
     border-top: 1px solid var(--border-subtle);
-    animation: fadeUp 0.6s 1.25s ease forwards;
+    animation: fadeUp 0.6s 1.35s ease forwards;
     opacity: 0;
     position: relative;
     z-index: 2;
@@ -588,6 +652,9 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
     .cta {
       font-size: 14px;
       padding: 14px 20px;
+    }
+    .contact-section {
+      padding: 16px;
     }
   }
 
@@ -665,7 +732,7 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
 
       <!-- CTA -->
       <div class="cta-wrapper">
-        <a href="https://t.me/+SL7gXjbYcpw1MGU9"
+        <a href="https://telegram.me/+SL7gXjbYcpw1MGU9"
            target="_blank"
            rel="noopener noreferrer"
            class="cta"
@@ -684,6 +751,25 @@ src="https://www.facebook.com/tr?id=1292030999709213&ev=PageView&noscript=1"
         </div>
         <span class="member-text"><strong>2,400+</strong> learners already joined</span>
       </div>
+
+      <!-- Contact Us Section -->
+<div class="contact-section">
+  <div class="contact-title">
+    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Contact Us
+  </div>
+  <div class="contact-info">
+    
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <a href="https://t.me/+SL7gXjbYcpw1MGU9" target="_blank" rel="noopener noreferrer">Join Telegram Channel</a>
+    </div>
+    <div class="contact-item">
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Worldwide Online Community</span>
+    </div>
+  </div>
+</div>
 
       <!-- Disclaimer -->
       <div class="disclaimer">
